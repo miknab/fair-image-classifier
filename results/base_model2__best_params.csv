@@ -1,0 +1,2 @@
+max_iter,learning_rate_init,hidden_layer_sizes,batch_size,alpha,score
+10,0.001,"(128,)",32,0.1,0.8104310859074323
