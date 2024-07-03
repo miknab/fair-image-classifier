@@ -1,3 +1,5 @@
+.DS_Store
 face_cls_env
 .ipynb_checkpoints
 facecls/__pycache__/
+results/models/*/OLD
