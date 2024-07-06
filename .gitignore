@@ -3,3 +3,7 @@ face_cls_env
 .ipynb_checkpoints
 facecls/__pycache__/
 results/models/*/OLD
+
+# ignoring models
+*.keras
+*.h5
