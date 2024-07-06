@@ -9,4 +9,4 @@ results/models/*/OLD
 *.h5
 
 # ignoring data files
-data/age_gender.csv
+data/age_gender*.csv
