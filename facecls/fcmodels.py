@@ -5,7 +5,7 @@ from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D 
 
-import fcaux
+from facecls import fcaux
 
 def mlp(num_classes, n_hidden = (128, ), activation="relu"):
     """
@@ -33,7 +33,7 @@ def mlp(num_classes, n_hidden = (128, ), activation="relu"):
 
     if num_classes == 2:
         loss = "binary_crossentropy"
-        metrics_list = ["accuracy"]
+        metrics_list = ["accuracy", "F1"]
         
     elif num_classes > 2:
         loss = "categorical_crossentropy"
@@ -51,7 +51,7 @@ def mlp(num_classes, n_hidden = (128, ), activation="relu"):
 
     return mlp
 
-def my_cnn(num_classes, seed=42)):
+def my_cnn(num_classes, seed=42):
     """
     CNN inspired by the scheme of "AlexNet" as shown in 
     https://medium.com/@siddheshb008/vgg-net-architecture-explained-71179310050f.
