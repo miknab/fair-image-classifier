@@ -1,5 +1,6 @@
 # Standard library imports
 import os
+from typing import List
 
 # 3rd party imports
 import pandas as pd
@@ -15,6 +16,7 @@ def set_seed(seed=42):
     tf.random.set_seed(seed)
     np.random.seed(seed)
     random.seed(seed)
+    return seed
 
 def pxlstring2pxlvec(df: pd.DataFrame, idx: int) -> np.ndarray:
     """
@@ -42,7 +44,12 @@ def pxlvec2pxlarray(pxlvec: np.ndarray) -> np.ndarray:
     arr_dim = int(np.sqrt(vec_dim))
     return pxlvec.reshape(arr_dim, arr_dim)
 
-def upsample_image(image: np.array, new_width: int, new_height: int) -> np.array:
-    pil_image = Image.fromarray((image * 255).astype(np.uint8))  # Convert numpy array to PIL Image
-    upsampled_image = pil_image.resize((new_width, new_height), Image.LANCZOS)
-    return np.array(upsampled_image) / 255  # Convert PIL Image back to numpy array and normalize
+def upsample_image(image: np.array, new_dim: int) -> np.array:
+    pil_image = Image.fromarray((image.astype(np.uint8))  # Convert numpy array to PIL Image
+    upsampled_image = pil_image.resize((new_dim, new_dim), Image.LANCZOS)
+    return np.array(upsampled_image)  # Convert PIL Image back to numpy array and normalize
+
+def preproc_data(X: np.array) -> np.array:
+    X = X.reshape(X.shape + (1,))
+    X = X.astype("float32")
+    return X / 255
