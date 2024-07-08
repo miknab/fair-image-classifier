@@ -108,7 +108,7 @@ def my_cnn(num_classes, seed=42):
 
     return model
 
-def alex_net(num_classes):
+def alex_net(num_classes, newdim):
     """
     Creates an AlexNet-like CNN.
 
