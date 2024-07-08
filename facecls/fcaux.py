@@ -49,7 +49,8 @@ def upsample_image(image: np.array, new_dim: int) -> np.array:
     upsampled_image = pil_image.resize((new_dim, new_dim), Image.LANCZOS)
     return np.array(upsampled_image)  # Convert PIL Image back to numpy array and normalize
 
-def preproc_data(X: np.array) -> np.array:
-    X = X.reshape(X.shape + (1,))
+def preproc_data(X: np.array, add_channels_dim = True) -> np.array:
+    if add_channels_dim:
+        X = X.reshape(X.shape + (1,))
     X = X.astype("float32")
     return X / 255

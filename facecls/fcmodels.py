@@ -7,13 +7,13 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D
 
 from facecls import fcaux
 
-def mlp(num_classes, n_hidden = (128, ), activation="relu"):
+def mlp(num_classes, in_shape, n_hidden = (128, ), activation="relu"):
     """
     Simple multi-layer perceptron
     """
     fcaux.set_seed()
     
-    input_img = Input(shape=X_train[0].shape)
+    input_img = Input(shape=in_shape)
 
     dense = Dense(n_hidden[0], activation=activation)(input_img)
 
@@ -33,7 +33,7 @@ def mlp(num_classes, n_hidden = (128, ), activation="relu"):
 
     if num_classes == 2:
         loss = "binary_crossentropy"
-        metrics_list = ["accuracy", "F1"]
+        metrics_list = ["accuracy"]
         
     elif num_classes > 2:
         loss = "categorical_crossentropy"
