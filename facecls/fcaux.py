@@ -45,7 +45,7 @@ def pxlvec2pxlarray(pxlvec: np.ndarray) -> np.ndarray:
     return pxlvec.reshape(arr_dim, arr_dim)
 
 def upsample_image(image: np.array, new_dim: int) -> np.array:
-    pil_image = Image.fromarray((image.astype(np.uint8))  # Convert numpy array to PIL Image
+    pil_image = Image.fromarray(image.astype(np.uint8))  # Convert numpy array to PIL Image
     upsampled_image = pil_image.resize((new_dim, new_dim), Image.LANCZOS)
     return np.array(upsampled_image)  # Convert PIL Image back to numpy array and normalize
 
