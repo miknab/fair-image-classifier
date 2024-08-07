@@ -1,3 +1,7 @@
+# Standard library imports
+from typing import Tuple, Any
+
+# 3rd party imports
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import Input
@@ -5,9 +9,14 @@ from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D 
 
+# Local imports
 from facecls import fcaux
 
-def mlp(num_classes, in_shape, n_hidden = (128, ), activation="relu"):
+def mlp(num_classes: int, 
+        in_shape: Tuple[int], 
+        n_hidden: Tuple[int] = (128, ), 
+        activation: str="relu"
+       ) -> keras.src.models.functional.Functional:
     """
     Simple multi-layer perceptron
     """
@@ -51,7 +60,7 @@ def mlp(num_classes, in_shape, n_hidden = (128, ), activation="relu"):
 
     return mlp
 
-def my_cnn(num_classes, seed=42):
+def my_cnn(num_classes: int, seed: int = 42) -> keras.src.models.functional.Functional:
     """
     CNN inspired by the scheme of "AlexNet" as shown in 
     https://medium.com/@siddheshb008/vgg-net-architecture-explained-71179310050f.
@@ -108,7 +117,7 @@ def my_cnn(num_classes, seed=42):
 
     return model
 
-def alex_net(num_classes, newdim):
+def alex_net(num_classes: int, newdim: int) -> keras.src.models.functional.Functional:
     """
     Creates an AlexNet-like CNN.
 
