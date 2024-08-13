@@ -229,8 +229,8 @@ def alex_net(num_classes: int, newdim: int, seed: int=42) -> keras.src.models.fu
     network defined in this function deviates from a proper
     AlexNet in the following four aspects:
 
-    1) The input dimension can but does not have to be the equal
-       to 224x224
+    1) The input dimension can but does not have to be equal
+       to 224x224 used in the original AlexNet.
     2) Here we focus on gray-scale instead of colored images, i.e.
        we use single-channel images as inputs.
     3) In order to make the model computationally less expensive,
