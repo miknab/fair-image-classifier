@@ -13,6 +13,9 @@ equally (or at least very similarly) well on all population subgroups?
 To generate the results stored in this repo I used a MacBook Pro (2019) 
 with a 2.8 GHz CPU and 16 GB RAM.
 
+## Notes
+The implementation of the AlexNet architecture makes use of Lambda layers provided by tensorflow.keras. As mentioned [here](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Lambda), this introduces limitations regarding (de)serialization and portability.
+
 ## References used in this work:
 [1] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. 2012. "ImageNet classification with deep convolutional neural networks." In Proceedings of the 25th International Conference on Neural Information Processing Systems - Volume 1 (NIPS'12). Curran Associates Inc., Red Hook, NY, USA, 1097–1105.
 
