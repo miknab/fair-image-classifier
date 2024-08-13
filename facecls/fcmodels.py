@@ -257,7 +257,16 @@ def alex_net(num_classes: int, newdim: int, seed: int=42) -> keras.src.models.fu
     -------
     keras.src.models.functional.Functional
         compiled tensorflow.keras model containing the CNN.
+
+    Raises
+    ------
+    ValueError
+        If newdim < 1
     """
+    # Check sanity of inputs
+    if newdim < 1:
+        raise ValueError("newdim must be at least 1.")
+        
     # Start again by setting the seed
     fcaux.set_seed(seed)
 
