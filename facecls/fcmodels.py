@@ -18,7 +18,7 @@ def mlp(num_classes: int,
         n_hidden: Tuple[int]=(128, ), 
         activation: str="relu",
         seed: int=42
-       ) -> keras.src.models.functional.Functional:
+       ) -> Model:
     """
     Define and create a simple multi-layer perceptron.
 
@@ -130,7 +130,7 @@ def mlp(num_classes: int,
     # Return the compiled model
     return mlp
 
-def my_cnn(num_classes: int, seed: int = 42) -> keras.src.models.functional.Functional:
+def my_cnn(num_classes: int, seed: int = 42) -> Model:
     """
     Definition of an AlexNet-inspired CNN.
     
@@ -220,7 +220,7 @@ def my_cnn(num_classes: int, seed: int = 42) -> keras.src.models.functional.Func
     # Return the model
     return model
 
-def alex_net(num_classes: int, newdim: int, seed: int=42) -> keras.src.models.functional.Functional:
+def alex_net(num_classes: int, newdim: int, seed: int=42) -> Model: 
     """
     Creates an AlexNet-like CNN.
 
@@ -275,7 +275,7 @@ def alex_net(num_classes: int, newdim: int, seed: int=42) -> keras.src.models.fu
     # twice in the code below:
     lrn = Lambda(local_response_normalization(bias=2, 
                                               alpha=1e-4, 
-                                              beta=0.75
+                                              beta=0.75,
                                               depth_radius=5)
                                              )
     
