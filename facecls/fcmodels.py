@@ -273,11 +273,13 @@ def alex_net(num_classes: int, newdim: int, seed: int=42) -> Model:
     # Before we start constructing the actual CNN, let's define
     # the local response-normalization layer, which will be used
     # twice in the code below:
-    lrn = Lambda(local_response_normalization(bias=2, 
-                                              alpha=1e-4, 
-                                              beta=0.75,
-                                              depth_radius=5)
-                                             )
+    lrn = Lambda(lambda x: local_response_normalization(x,
+                                                        bias=2, 
+                                                        alpha=1e-4, 
+                                                        beta=0.75,
+                                                        depth_radius=5
+                                                       )
+                )
     
     # Next, we again define the input object. Here the object
     # has three channels as we are processing images. However,
