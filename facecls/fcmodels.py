@@ -304,7 +304,7 @@ def alex_net(num_classes: int, newdim: int, seed: int=42) -> Model:
     activ4 = Activation("relu")(conv4)
     conv5 = Conv2D(256, (3,3), padding="same")(activ4)
     activ5 = Activation("relu")(conv4)
-    pool3 = MaxPooling2D(pool_size=(3,3), strides=2)(activ2)
+    pool3 = MaxPooling2D(pool_size=(3,3), strides=2)(activ5)
     
     flat = Flatten()(pool3)
     
